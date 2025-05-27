@@ -1,23 +1,14 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/home/Home";
+import Vehiculos from "./pages/vehiculos/Vehiculos";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <h1>Gestion Vehicular</h1>
-      <div className="card">
-        <button>Mantenimientos</button>
-        <button>Compras</button>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/vehiculos" element={<Vehiculos />} />
+    </Routes>
+  );
+};
 
-export default App
+export default App;
