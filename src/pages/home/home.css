@@ -1,25 +1,15 @@
-*{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    box-sizing: border-box;
-    margin: 0;
-}
 
 .fondo {
+  height: 100%;
   background: radial-gradient(circle, #e0e0e0, #a0a0a0, #606060);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.btn-contenedor {
+.home-contenedor {
   background: linear-gradient(to bottom right, #dbeafe, #fef9c3);
   border-radius: 30px 30px 0px 0px;
-  padding: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   width: 100%;
-  max-width: 420px; /* 🔒 Limita el ancho en pantallas grandes */
-  margin: 0 auto;   /* 🎯 Centra horizontalmente en PC */
+  margin: 0;   /* 🎯 Centra horizontalmente en PC */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -41,41 +31,15 @@
   font-weight: bold;
 }
 
-/* Botones abajo */
-.botones-footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.btn1 {
-  flex: 1;
-  padding: 12px;
-  font-size: 16px;
-  border-radius: 10px;
-  background-color: rgb(221, 87, 33);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
-  color: white;
-  border: none;
-  transition: 0.2s ease all;
-}
-
-.btn1:hover {
-  background-color: rgb(200, 70, 20);
-  transform: scale(1.03);
-}
-
-
-
 /* Sección para el gráfico circular */
 .dashboard {
   width: 100%;
   max-width: 300px;
-  margin: 0 auto;
+  margin: 0;
 }
  
 @media (min-width: 768px) {
-  .btn-contenedor {
+  .home-contenedor {
     max-width: 1600px; /* o 640px, 720px, según lo que prefieras */
     border-radius: 30px 30px 0px 0px; /* bordes iguales en PC para estética */
   }

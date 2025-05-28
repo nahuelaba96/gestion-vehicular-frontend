@@ -1,0 +1,52 @@
+
+/* Botones abajo */
+.botones-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.btn1 {
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  background-color: rgb(221, 87, 33);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+  color: white;
+  border: none;
+  transition: 0.2s ease all;
+}
+
+.btn1:hover {
+  background-color: rgb(200, 70, 20);
+  transform: scale(1.03);
+}
+
+.btn1.active {
+  background-color: rgb(255, 114, 58);
+}
+
+.btn2 {
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+  color: rgb(221, 87, 33);
+  border: 5px;
+  border-color: rgb(221, 87, 33);;
+  transition: 0.2s ease all;
+}
+
+.btn2:hover {
+  background-color: rgb(200, 70, 20);
+  transform: scale(1.03);
+color: white;
+}
+
+.btn2.active {
+  background-color: rgb(255, 114, 58);
+  color: white;
+}
