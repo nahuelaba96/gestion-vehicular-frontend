@@ -1,20 +1,14 @@
+*{
+   box-sizing: border-box;
+}
+
+
 
 .fondo {
   height: 100%;
-  background: radial-gradient(circle, #e0e0e0, #a0a0a0, #606060);
+  background: linear-gradient(to bottom right, #dbeafe, #fef9c3);
 }
 
-.home-contenedor {
-  background: linear-gradient(to bottom right, #dbeafe, #fef9c3);
-  border-radius: 30px 30px 0px 0px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  width: 100%;
-  margin: 0;   /* 🎯 Centra horizontalmente en PC */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
-}
 
 .titulo {
   font-size: 1.5rem;

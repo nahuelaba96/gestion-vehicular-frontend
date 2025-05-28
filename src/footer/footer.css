@@ -1,6 +1,15 @@
 
 /* Botones abajo */
 .botones-footer {
+  position: fixed; /* Lo hace flotar sobre el contenido */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Asegura que esté por encima de todo */
+  background-color: #fff; /* Fondo blanco para que no se vea transparente */
+  padding: 8px;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+
   display: flex;
   justify-content: space-between;
   gap: 8px;

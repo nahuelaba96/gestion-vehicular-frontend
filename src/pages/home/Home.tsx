@@ -9,8 +9,6 @@ const Home = () => {
 
   return (
     <div className="fondo">
-      <div className="home-contenedor">
-        {/* Contenido central */}
         <div>
           <h1 className="titulo">Gestión Vehicular</h1>
           <div className="resumen-gastos">
@@ -27,7 +25,6 @@ const Home = () => {
             </ul>
           </div>
         </div>
-      </div>
     </div>
 
   );
