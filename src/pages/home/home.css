@@ -2,9 +2,47 @@
    box-sizing: border-box;
 }
 
-.encabezado {
-  display:flex;
-  
+/* Estructura general */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(to bottom right, #dbeafe, #fef9c3);
+  font-family: sans-serif;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+}
+
+.titulo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.acciones {
+  display: flex;
+  gap: 12px;
+}
+
+.icono-boton {
+  background: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+
+
+.icono-boton:hover {
+  transform: scale(1.1);
 }
 
 .fondo {

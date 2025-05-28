@@ -9,11 +9,18 @@ const Home = () => {
 
   return (
     <div className="fondo">
-        <div className="encabezado">
-          <h1 className="titulo">Gestión Vehicular</h1>
-          <button className="btn_add"></button>
-          <button className="btn_profile"></button>
-        </div>
+
+      <div className ="app-container">
+        <header className="header">
+        <h1 className="titulo">Gestiona tu vehículos</h1>
+          <div className="acciones">
+            <button className="icono-boton">➕</button>
+            <button className="icono-boton">👤</button>
+          </div>
+        </header>
+      </div>
+
+
         <div>
           <div className="resumen-gastos">
             <p>Total gastado este mes:</p>
