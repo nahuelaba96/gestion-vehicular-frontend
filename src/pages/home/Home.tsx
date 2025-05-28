@@ -24,36 +24,34 @@ const Home = () => {
 
   return (
     <div className="fondo">
-      <div className="btn-contenedor">
-        <h1 className="titulo">Gestión Vehicular</h1>
+  <div className="btn-contenedor">
+    {/* Contenido central */}
+    <div>
+      <h1 className="titulo">Gestión Vehicular</h1>
+      <div className="resumen-gastos">
+        <p>Total gastado este mes:</p>
+        <strong>${totalGastos}</strong>
+      </div>
 
-        <div className="resumen-gastos">
-          <p>Total gastado este mes:</p>
-          <strong>${totalGastos}</strong>
-        </div>
-
-        <button onClick={irAVehiculos} className="btn1">
-          🚗 Ir a vehículos
-        </button>
-        <button onClick={Gmantenimientos} className="btn1">
-          🧰 Gastos de mantenimientos
-        </button>
-        <button onClick={irACompras} className="btn1">
-          ⛽ Gastos de compra
-        </button>
-
-        <div className="notificaciones">
-          <p className="noti-titulo">
-            🔔 Notificaciones
-          </p>
-          <ul>
-            {notificaciones.map((msg, i) => (
-              <li key={i}>{msg}</li>
-            ))}
-          </ul>
-        </div>
+      <div className="notificaciones">
+        <p className="noti-titulo">🔔 Notificaciones</p>
+        <ul>
+          {notificaciones.map((msg, i) => (
+            <li key={i}>{msg}</li>
+          ))}
+        </ul>
       </div>
     </div>
+
+    {/* Botones al fondo */}
+    <div className="botones-footer">
+      <button onClick={irAVehiculos} className="btn1">🚗</button>
+      <button onClick={Gmantenimientos} className="btn1">🧰</button>
+      <button onClick={irACompras} className="btn1">⛽</button>
+    </div>
+  </div>
+</div>
+
   );
 };
 

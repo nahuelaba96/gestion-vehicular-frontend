@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
 *{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
 }
-
 
 .fondo {
   background: radial-gradient(circle, #e0e0e0, #a0a0a0, #606060);
@@ -14,47 +13,70 @@
 }
 
 .btn-contenedor {
-  background-color: #f5f5f5;       /* Fondo claro dentro del fondo general */
-  padding: 40px 60px;              /* Agranda el tamaño interior */
-  border-radius: 10px;             /* Bordes redondeados opcionales */
+  background: linear-gradient(to bottom right, #dbeafe, #fef9c3);
+  border-radius: 30px 30px 0px 0px;
+  padding: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 420px; /* 🔒 Limita el ancho en pantallas grandes */
+  margin: 0 auto;   /* 🎯 Centra horizontalmente en PC */
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+}
 
+.titulo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.resumen-gastos {
+  text-align: center;
+}
+
+.noti-titulo {
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+/* Botones abajo */
+.botones-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
 }
 
 .btn1 {
-  padding: 10px 20px;
+  flex: 1;
+  padding: 12px;
   font-size: 16px;
-  cursor: pointer;
   border-radius: 10px;
   background-color: rgb(221, 87, 33);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
-  color: aliceblue;
-   width: 100%;
-  box-sizing: border-box;
-
-  /* Transiciones suaves */
-  transition: 
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    background-color 0.2s ease,
-    color 0.2s ease;
+  color: white;
+  border: none;
+  transition: 0.2s ease all;
 }
 
-/* Efecto hover con zoom y sombra más marcada */
 .btn1:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
   background-color: rgb(200, 70, 20);
-  color: #fff;
+  transform: scale(1.03);
 }
 
-/* Efecto al hacer click */
-.btn1:active {
-  transform: scale(0.97);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
 
+
+/* Sección para el gráfico circular */
+.dashboard {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+ 
+@media (min-width: 768px) {
+  .btn-contenedor {
+    max-width: 1600px; /* o 640px, 720px, según lo que prefieras */
+    border-radius: 30px 30px 0px 0px; /* bordes iguales en PC para estética */
+  }
+}
