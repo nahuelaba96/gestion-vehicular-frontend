@@ -3,9 +3,9 @@ import "./footer.css";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const tabs = [
-    { path: "/", label: "Home" },
-    { path: "/vehiculos", label: "Vehículos" },
-    { path: "/gastosdemantenimiento", label: "Mantenimientos" },
+    { path: "/", label: "🏠 Inicio" },
+    { path: "/vehiculos", label: "🛠️ Gastos de mantenimiento" },
+    { path: "/gastosdemantenimiento", label:"⛽ Gastos de combustibles" },
 ];
 
 const FooterTabs = () => {

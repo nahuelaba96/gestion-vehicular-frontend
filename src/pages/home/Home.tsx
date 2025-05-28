@@ -9,13 +9,16 @@ const Home = () => {
 
   return (
     <div className="fondo">
-        <div>
+        <div className="encabezado">
           <h1 className="titulo">Gestión Vehicular</h1>
+          <button className="btn_add"></button>
+          <button className="btn_profile"></button>
+        </div>
+        <div>
           <div className="resumen-gastos">
             <p>Total gastado este mes:</p>
             <strong>${totalGastos}</strong>
           </div>
-
           <div className="notificaciones">
             <p className="noti-titulo">🔔 Notificaciones</p>
             <ul>
