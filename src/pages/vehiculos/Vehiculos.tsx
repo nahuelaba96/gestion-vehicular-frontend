@@ -7,7 +7,7 @@ const Vehiculos = () => {
   const [cargando, setCargando] = useState(true);
 
 useEffect(() => {
-  axios.get('https://gestion-vehicular-backend-production.up.railway.app/gestion-vehicular/', {withCredentials: true})
+  axios.get('https://gestion-vehicular-backend-production.up.railway.app/vehicles/', {withCredentials: true})
     .then((res) => {
       setVehiculos(res.data);
       console.log(res.data);
