@@ -23,6 +23,9 @@
 .titulo {
   font-size: 1.5rem;
   font-weight: bold;
+  flex-grow: 2;
+  color:rgb(221, 87, 33);;
+  text-shadow: 1px 1px 4px grey;;
 }
 
 .acciones {

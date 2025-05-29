@@ -7,7 +7,7 @@ const Home = () => {
 
       <div className ="app-container">
         <header className="header">
-        <h1 className="titulo">Gestiona tu vehículos</h1>
+          <h1 className="titulo">Gestiona tu vehículos</h1>
           <div className="acciones">
             <button className="icono-boton">➕</button>
             <button className="icono-boton">👤</button>
