@@ -2,6 +2,7 @@
    box-sizing: border-box;
 }
 
+
 /* Estructura general */
 .app-container {
   display: flex;
@@ -73,6 +74,24 @@
   margin: 0;
 }
  
+/*         Login page                   */
+
+.subtitulo{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color:red;
+}
+
+
+
+
+
+
+
+
+
+
 @media (min-width: 768px) {
   .home-contenedor {
     max-width: 1600px; /* o 640px, 720px, según lo que prefieras */
