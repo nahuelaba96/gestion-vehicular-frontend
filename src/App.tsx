@@ -7,19 +7,26 @@ import FooterTabs from "./footer/Footer";
 import "./index.css";
 import Login from "./pages/loginPage/LoginPage";
 import ProtectedRoute from "./authorization/ProtectedRoutes";
+import NotFound from "./pages/notFound/NotFound";
 
 const App = () => {
   const location = useLocation();
-  const hideFooterOnRoutes = ["/login"];
+  const validRoutes = ["/", "/login", "/vehiculos", "/gastosdemantenimiento"];
 
-  const shouldHideFooter = hideFooterOnRoutes.includes(location.pathname);
+  const shouldHideFooter = 
+  location.pathname === "/login" || 
+  !validRoutes.includes(location.pathname);
 
   return (
     <GoogleOAuthProvider clientId="380556145557-orli0meppjcmfdh6pnf0imm42q1bhioi.apps.googleusercontent.com">
       <div className="app-container">
         <div style={{ flex: 1, overflow: "auto" }}>
           <Routes>
+
+            <Route path="*" element={<NotFound />} />
+
             <Route path="/login" element={<Login />} />
+
             <Route
               path="/"
               element={

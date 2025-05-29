@@ -1,26 +1,26 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Vehiculo } from "../../models/Vehiculos";
-import axios from "axios";
+import { obtenerVehiculos } from "../../services/vehiculosService";
 
 const Vehiculos = () => {
   const [vehiculos, setVehiculos] = useState<Vehiculo[]>([]);
   const [cargando, setCargando] = useState(true);
-  const token = localStorage.getItem("jwt");
+  const effectRan = useRef(false); 
 
 useEffect(() => {
-  axios.get('https://gestion-vehicular-backend-production.up.railway.app/vehicles/', 
-    {withCredentials: true, headers: { Authorization: `Bearer ${token}` }})
-    .then((res) => {
-      setVehiculos(res.data);
-      console.log(res.data);
-
-      setCargando(false);
-    })
-    .catch((error) => {
-      console.error("Error al obtener vehículos:", error);
-      setCargando(false);
-    });
-}, []);
+    if (!effectRan.current) {
+      obtenerVehiculos()
+        .then((res) => {
+          setVehiculos(res.data);
+          setCargando(false);
+        })
+        .catch((error) => {
+          console.error(error);
+          setCargando(false);
+        });
+      effectRan.current = true;
+    }
+  }, []);
 
 
   if (cargando) return <p>Cargando...</p>;

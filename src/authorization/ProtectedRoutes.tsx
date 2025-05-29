@@ -1,16 +1,13 @@
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
-import axios from "axios";
+import authService from "../services/authServices";
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const [authChecked, setAuthChecked] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    axios
-      .get("https://gestion-vehicular-backend-production.up.railway.app/auth/verify", {
-        withCredentials: true, 
-      })
+    authService.verify()
       .then(() => setIsAuthenticated(true))
       .catch(() => setIsAuthenticated(false))
       .finally(() => setAuthChecked(true));

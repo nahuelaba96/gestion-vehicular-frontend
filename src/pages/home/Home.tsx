@@ -1,3 +1,4 @@
+import LogoutButton from "../../components/logoutButton/LogoutButton";
 import "./home.css";
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
           <div className="acciones">
             <button className="icono-boton">➕</button>
             <button className="icono-boton">👤</button>
+            <LogoutButton></LogoutButton>
           </div>
         </header>
       </div>
