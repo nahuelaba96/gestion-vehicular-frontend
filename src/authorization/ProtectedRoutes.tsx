@@ -8,7 +8,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/auth/verify", {
+      .get("https://gestion-vehicular-backend-production.up.railway.app/auth/verify", {
         withCredentials: true, 
       })
       .then(() => setIsAuthenticated(true))

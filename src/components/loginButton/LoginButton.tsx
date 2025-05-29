@@ -4,7 +4,7 @@ import axios from 'axios';
 const GoogleLoginButton = () => {
   const handleLoginSuccess = async (credentialResponse: any) => {
     try {
-      await axios.post('http://localhost:8080/auth/google', {
+      await axios.post('https://gestion-vehicular-backend-production.up.railway.app/auth/google', {
         token: credentialResponse.credential,
       }, {
         withCredentials: true,

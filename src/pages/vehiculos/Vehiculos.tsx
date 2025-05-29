@@ -8,7 +8,7 @@ const Vehiculos = () => {
   const token = localStorage.getItem("jwt");
 
 useEffect(() => {
-  axios.get('http://localhost:8080/vehicles/', 
+  axios.get('https://gestion-vehicular-backend-production.up.railway.app/vehicles/', 
     {withCredentials: true, headers: { Authorization: `Bearer ${token}` }})
     .then((res) => {
       setVehiculos(res.data);
