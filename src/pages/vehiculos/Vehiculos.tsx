@@ -5,9 +5,11 @@ import axios from "axios";
 const Vehiculos = () => {
   const [vehiculos, setVehiculos] = useState<Vehiculo[]>([]);
   const [cargando, setCargando] = useState(true);
+  const token = localStorage.getItem("jwt");
 
 useEffect(() => {
-  axios.get('https://gestion-vehicular-backend-production.up.railway.app/vehicles/', {withCredentials: true})
+  axios.get('https://gestion-vehicular-backend-production.up.railway.app/vehicles/', 
+    {withCredentials: true, headers: { Authorization: `Bearer ${token}` }})
     .then((res) => {
       setVehiculos(res.data);
       console.log(res.data);
