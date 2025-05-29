@@ -3,15 +3,14 @@ import axios from 'axios';
 
 const GoogleLoginButton = () => {
   const handleLoginSuccess = async (credentialResponse: any) => {
-    debugger;
     try {
-      const res = await axios.post('http://localhost:8080/auth/google', {
+      await axios.post('http://localhost:8080/auth/google', {
         token: credentialResponse.credential,
+      }, {
+        withCredentials: true,
       });
 
-      console.log('Token JWT recibido desde backend:', res.data.token);
-
-      localStorage.setItem('jwt', res.data.token);
+      window.location.href = '/'; // Redirigir al dashboard después del login exitoso
     } catch (error) {
       console.error('Error al autenticar con backend:', error);
     }
