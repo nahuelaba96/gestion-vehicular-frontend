@@ -1,5 +1,5 @@
-import type { Gasto } from "../../models/Gastos";
-import type { Vehiculo } from "../../models/Vehiculos";
+import type { Gasto } from "../../../models/Gastos";
+import type { Vehiculo } from "../../../models/Vehiculos";
 import "./GastosCard.css";
 
 type Props = {

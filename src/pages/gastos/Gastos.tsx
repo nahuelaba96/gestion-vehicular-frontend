@@ -3,8 +3,8 @@ import type { Gasto } from "../../models/Gastos";
 import { obtenerGastos, crearGasto, eliminarGasto } from "../../services/gastosService";
 import Modal from "../../components/modal/Modal";
 import "./Gastos.css";
-import GastoCard from "../../components/gastos/GastosCard";
-import GastoForm from "../../components/gastos/GastosForm";
+import GastoCard from "../../components/gastos/gastosCard/GastosCard";
+import GastoForm from "../../components/gastos/gastosForm/GastosForm";
 import type { Vehiculo } from "../../models/Vehiculos";
 import { obtenerVehiculos } from "../../services/vehiculosService";
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { Gasto } from "../../models/Gastos";
+import type { Gasto } from "../../../models/Gastos";
 
 const GastoItemForm = ({ onAdd }: { onAdd: (item: Gasto["items"][0]) => void }) => {
   const [item, setItem] = useState({ descripcion: "", cantidad: 1, precio_unitario: 0 });

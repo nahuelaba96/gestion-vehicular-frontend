@@ -1,4 +1,4 @@
-import type { Gasto } from "../../models/Gastos";
+import type { Gasto } from "../../../models/Gastos";
 
 const GastoItemList = ({ items, onDelete }: { items: Gasto["items"]; onDelete: (index: number) => void }) => {
   return (

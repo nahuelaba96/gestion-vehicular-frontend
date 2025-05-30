@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import type { Gasto } from "../../models/Gastos";
+import type { Gasto } from "../../../models/Gastos";
 import "./GastosForm.css";
-import type { Vehiculo } from "../../models/Vehiculos";
-import { obtenerVehiculos } from "../../services/vehiculosService";
+import type { Vehiculo } from "../../../models/Vehiculos";
+import { obtenerVehiculos } from "../../../services/vehiculosService";
 
 interface Props {
   onSubmit: (gasto: Gasto) => void;
