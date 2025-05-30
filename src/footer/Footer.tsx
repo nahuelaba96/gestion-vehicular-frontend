@@ -6,6 +6,7 @@ const tabs = [
     { path: "/", label: "🏠 Inicio" },
     { path: "/vehiculos", label: "🛠️ Gastos de mantenimiento" },
     { path: "/gastosdemantenimiento", label:"⛽ Gastos de combustibles" },
+    { path: "/gastos", label:"Compras" },
 ];
 
 const FooterTabs = () => {

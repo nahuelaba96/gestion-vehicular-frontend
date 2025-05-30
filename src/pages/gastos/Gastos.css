@@ -1,0 +1,19 @@
+.gastos-container {
+  padding: 1rem;
+}
+
+.crear-btn {
+  background: #007bff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.gasto-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

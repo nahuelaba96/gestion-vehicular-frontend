@@ -6,6 +6,9 @@ const BASE_URL = "https://gestion-vehicular-backend-production.up.railway.app";
 
 const apiClient = axios.create({
   baseURL: BASE_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
   withCredentials: true, // para enviar cookies
 });
 

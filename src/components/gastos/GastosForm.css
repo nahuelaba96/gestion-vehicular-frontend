@@ -1,0 +1,25 @@
+.gasto-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.gasto-form input,
+.gasto-form textarea {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.items-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+
+.gasto-form select {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}

@@ -1,0 +1,53 @@
+.gasto-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin-bottom: 16px;
+  max-width: 500px;
+  position: relative;
+}
+
+.gasto-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gasto-proveedor {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.gasto-vehiculo {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #666;
+}
+
+.gasto-fecha,
+.gasto-nota,
+.gasto-total {
+  margin: 6px 0;
+}
+
+.gasto-items {
+  list-style-type: disc;
+  padding-left: 16px;
+  margin: 8px 0;
+}
+
+.gasto-eliminar {
+  margin-top: 10px;
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.gasto-eliminar:hover {
+  background: #d9363e;
+}
