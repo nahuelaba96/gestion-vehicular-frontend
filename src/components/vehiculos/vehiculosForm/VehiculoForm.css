@@ -1,0 +1,61 @@
+.vehiculo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+  margin: 0 auto 20px auto;
+}
+
+.vehiculo-form label {
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 4px;
+}
+
+.vehiculo-form input,
+.vehiculo-form textarea {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
+}
+
+.vehiculo-form input:focus,
+.vehiculo-form textarea:focus {
+  outline: none;
+  border-color: #1976d2;
+}
+
+.vehiculo-form button {
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.vehiculo-form input:focus {
+  outline: none;
+  border: 2px solid #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.vehiculo-form button {
+  background: #3498db;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.vehiculo-form button:hover {
+  background: #2980b9;
+}

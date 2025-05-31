@@ -1,9 +1,4 @@
-*{
-   box-sizing: border-box;
-}
 
-
-/* Estructura general */
 .app-container {
   display: flex;
   flex-direction: column;
@@ -12,7 +7,6 @@
   font-family: sans-serif;
 }
 
-/* Header */
 .header {
   display: flex;
   justify-content: space-between;
@@ -25,7 +19,8 @@
   font-weight: bold;
   flex-grow: 2;
   color:rgb(221, 87, 33);;
-  text-shadow: 1px 1px 4px grey;;
+  text-shadow: 1px 1px 4px grey;
+  text-align: center;
 }
 
 .acciones {
@@ -44,60 +39,6 @@
   transition: transform 0.2s;
 }
 
-
 .icono-boton:hover {
   transform: scale(1.1);
-}
-
-.fondo {
-  height: 100%;
-  background: linear-gradient(to bottom right, #dbeafe, #fef9c3);
-}
-
-
-.titulo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-align: center;
-}
-
-.resumen-gastos {
-  text-align: center;
-}
-
-.noti-titulo {
-  margin-top: 8px;
-  font-weight: bold;
-}
-
-/* Sección para el gráfico circular */
-.dashboard {
-  width: 100%;
-  max-width: 300px;
-  margin: 0;
-}
- 
-/*         Login page                   */
-
-.subtitulo{
-    text-align: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    color:red;
-}
-
-
-
-
-
-
-
-
-
-
-@media (min-width: 768px) {
-  .home-contenedor {
-    max-width: 1600px; /* o 640px, 720px, según lo que prefieras */
-    border-radius: 30px 30px 0px 0px; /* bordes iguales en PC para estética */
-  }
 }

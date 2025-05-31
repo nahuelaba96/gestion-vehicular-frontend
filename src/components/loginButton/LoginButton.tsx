@@ -18,6 +18,10 @@ const GoogleLoginButton = () => {
     <GoogleLogin
       onSuccess={handleLoginSuccess}
       onError={() => console.log("Error de login")}
+      theme="outline"
+      size="large"
+      text="signin_with"
+      shape="pill"
     />
   );
 };

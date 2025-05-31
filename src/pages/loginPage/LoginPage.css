@@ -1,0 +1,49 @@
+.fondo-login {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Apoya arriba en vez de centro vertical */
+  padding-top: 26vh; /* Empuja hacia abajo desde arriba */
+  height: 100vh;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  border-radius: 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.login-container:hover {
+  transform: scale(1.01);
+}
+
+.titulo {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+}
+
+.subtitulo {
+  font-size: 1rem;
+  color: #555;
+  text-align: center;
+  margin: 0;
+}
+
+.titulo, .subtitulo {
+  margin-bottom: 1rem;
+}
+
+.login-container {
+  margin-top: 2rem;
+}

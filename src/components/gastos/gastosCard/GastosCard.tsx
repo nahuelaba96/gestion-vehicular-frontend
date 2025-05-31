@@ -9,7 +9,7 @@ type Props = {
 };
 
 const GastoCard = ({ gasto, onDelete, vehiculos }: Props) => {
-  const vehiculo = vehiculos.find((v) => v.id === gasto.vehiculo_id);
+  const vehiculo = vehiculos?.find((v) => v.id === gasto.vehiculo_id);
   return (
     <div className="gasto-card">
       <div className="gasto-card-header">

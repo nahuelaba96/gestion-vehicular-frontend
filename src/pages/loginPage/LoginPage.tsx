@@ -1,18 +1,16 @@
 import GoogleLoginButton from "../../components/loginButton/LoginButton";
+import "./LoginPage.css";
 
 const Login = () => {
     return (
-        <div className="fondo">
-            <div>
+        <div className="fondo-login">
+            <div className="login-container">
                 <h1 className="titulo">Gestión Vehicular</h1>
                 <p className="subtitulo">Inicia sesión para continuar</p>
-                <div className="login-container">
-
-                    <GoogleLoginButton/>
-
-                </div>
+                <GoogleLoginButton />
             </div>
         </div>
+
     );
 }
 

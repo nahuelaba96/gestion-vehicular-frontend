@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import type { Gasto } from "../../models/Gastos";
 import { obtenerGastos, crearGasto, eliminarGasto } from "../../services/gastosService";
 import Modal from "../../components/modal/Modal";
-import "./Gastos.css";
+import "./Compras.css";
 import GastoCard from "../../components/gastos/gastosCard/GastosCard";
 import GastoForm from "../../components/gastos/gastosForm/GastosForm";
 import type { Vehiculo } from "../../models/Vehiculos";
@@ -32,7 +32,6 @@ const Gastos = () => {
         .then((res) => setVehiculos(res.data))
         .catch(console.error);
       effectRan2.current = true;
-      console.log("Vehículos cargados:", vehiculos);
     }
   }, []);
 
@@ -59,8 +58,8 @@ const Gastos = () => {
 
   return (
     <div className="gastos-container">
-      <h2>Gastos</h2>
-      <button onClick={() => setMostrarModal(true)} className="crear-btn">Crear Gasto</button>
+      <h2>Compras</h2>
+      <button onClick={() => setMostrarModal(true)} className="crear-btn">Registrar Compra</button>
 
       <div className="gasto-card-list">
         {Array.isArray(gastos) && gastos.length > 0 ? (
@@ -68,7 +67,7 @@ const Gastos = () => {
             <GastoCard key={gasto.id} gasto={gasto} onDelete={handleEliminar} vehiculos={vehiculos} />
           ))
         ) : (
-          <p>No hay gastos registrados.</p>
+          <p>No hay compras registradas.</p>
         )}
       </div>
 

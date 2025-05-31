@@ -8,11 +8,12 @@ import "./index.css";
 import Login from "./pages/loginPage/LoginPage";
 import ProtectedRoute from "./authorization/ProtectedRoutes";
 import NotFound from "./pages/notFound/NotFound";
-import Gastos from "./pages/gastos/Gastos";
+import Gastos from "./pages/compras/Compras";
+import GCombustible from "./pages/gCombustible/GCombustible";
 
 const App = () => {
   const location = useLocation();
-  const validRoutes = ["/", "/login", "/vehiculos", "/gastosdemantenimiento", "/gastos"];
+  const validRoutes = ["/", "/login", "/vehiculos", "/gastos-mantenimiento", "/compras", "/gastos-combustible"];
 
   const shouldHideFooter = 
   location.pathname === "/login" || 
@@ -45,7 +46,7 @@ const App = () => {
               }
             />
             <Route
-              path="/gastos"
+              path="/compras"
               element={
                 <ProtectedRoute>
                   <Gastos />
@@ -53,10 +54,18 @@ const App = () => {
               }
             />
             <Route
-              path="/gastosdemantenimiento"
+              path="/gastos-mantenimiento"
               element={
                 <ProtectedRoute>
                   <Gmantenimientos />
+                </ProtectedRoute>
+              }
+            />
+          <Route
+              path="/gastos-combustible"
+              element={
+                <ProtectedRoute>
+                  <GCombustible />
                 </ProtectedRoute>
               }
             />
