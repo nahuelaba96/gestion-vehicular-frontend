@@ -10,16 +10,28 @@ import { obtenerVehiculos } from "../../services/vehiculosService";
 
 const Gastos = () => {
   const [gastos, setGastos] = useState<Gasto[]>([]);
+  const [resumenGastos, setResumenGastos] = useState<ResumenGasto>();
   const [mostrarModal, setMostrarModal] = useState(false);
   const [cargando, setCargando] = useState(true);
   const effectRan = useRef(false); 
   const effectRan2 = useRef(false); 
   const [vehiculos, setVehiculos] = useState<Vehiculo[]>([]);
 
+  type ResumenGasto = {
+  total: number;
+  mesActual: number;
+  mesAnterior: number;
+  anioActual: number;
+};
+
   useEffect(() => {
     if (!effectRan.current) {
       obtenerGastos()
-        .then((res) => setGastos(res.data))
+        .then((res) => {
+          setGastos(res.data)
+          setResumenGastos(calcularResumen(res.data));
+          console.log(resumenGastos)
+        })
         .catch(console.error)
         .finally(() => setCargando(false));
       effectRan.current = true;
@@ -54,11 +66,31 @@ const Gastos = () => {
     }
   };
 
+  const calcularResumen = (gastos: Gasto[]): ResumenGasto => {
+    const total = gastos.reduce((acc, g) => acc + g.total, 0);
+    const mesAnterior = gastos
+      .filter((g) => new Date(g.fecha).getMonth() === new Date().getMonth() - 1)
+      .reduce((acc, g) => acc + g.total, 0);
+    const anioActual = gastos
+      .filter((g) => new Date(g.fecha).getFullYear() === new Date().getFullYear())
+      .reduce((acc, g) => acc + g.total, 0);
+    const mesActual = gastos
+      .filter((g) => new Date(g.fecha).getMonth() === new Date().getMonth())
+      .reduce((acc, g) => acc + g.total, 0);
+    return { total, mesActual, mesAnterior, anioActual};
+  };
+
   if (cargando) return <p>Cargando...</p>;
 
   return (
     <div className="gastos-container">
       <h2>Compras</h2>
+      <div className="gastos-resumen">
+        <p>Total Gastos: ${resumenGastos?.total.toFixed(2)}</p>
+        <p>Total del Año: ${resumenGastos?.anioActual.toFixed(2)}</p>
+        <p>Mes Anterior: ${resumenGastos?.mesAnterior.toFixed(2)}</p>
+        <p>Mes Actual: ${resumenGastos?.mesActual.toFixed(2)}</p>
+      </div>
       <button onClick={() => setMostrarModal(true)} className="crear-btn">Registrar Compra</button>
 
       <div className="gasto-card-list">
