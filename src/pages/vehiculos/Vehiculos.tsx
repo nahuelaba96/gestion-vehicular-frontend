@@ -45,14 +45,23 @@ export const Vehiculos = () => {
 
   return (
     <>
-      <button  className="vehiculos-button-nuevo" onClick={() => setModalOpen(true)}>Nuevo Vehículo</button>
+      {!modalOpen && (
+          <button
+            onClick={() => setModalOpen(true)}
+            className="fixed bottom-32 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-sky-500 hover:bg-sky-700 text-white shadow-lg transition-colors duration-300 text-3xl"
+          >
+            +
+          </button>
+        )}
+
+
 
       <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-        <h3>Nuevo Vehículo</h3>
+        <h3 className="text-xl font-bold mb-4">Nuevo Vehículo</h3>
         <VehiculoForm onAdd={handleAddVehiculo} />
       </Modal>
 
-      <div className="vehiculos-card-list">
+      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 m-4">
         {Array.isArray(vehiculos) && vehiculos.length > 0 ? (
           vehiculos.map((vehiculo) => (
             <VehiculoCard
@@ -62,10 +71,9 @@ export const Vehiculos = () => {
             />
           ))
         ) : (
-          <p>No hay vehículos registrados.</p>
+          <p className="text-gray-500">No hay vehículos registrados.</p>
         )}
       </div>
-
     </>
   );
 };

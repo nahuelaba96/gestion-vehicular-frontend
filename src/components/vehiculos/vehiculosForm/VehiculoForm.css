@@ -1,61 +1,17 @@
-.vehiculo-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  max-width: 400px;
-  margin: 0 auto 20px auto;
+@import "tailwindcss";
+
+.form-label {
+  @apply block text-sm/6 font-medium text-gray-900 px-4;
 }
 
-.vehiculo-form label {
-  font-weight: 600;
-  color: #444;
-  margin-bottom: 4px;
+.input-field-container {
+  @apply flex items-center rounded-full bg-white px-3 outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600 has-[select:focus-within]:outline-2 has-[select:focus-within]:-outline-offset-2 has-[select:focus-within]:outline-indigo-600;
 }
 
-.vehiculo-form input,
-.vehiculo-form textarea {
-  padding: 8px 12px;
-  font-size: 1rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  transition: border-color 0.3s ease;
+.input-field {
+  @apply block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6 bg-white appearance-none;
 }
 
-.vehiculo-form input:focus,
-.vehiculo-form textarea:focus {
-  outline: none;
-  border-color: #1976d2;
-}
-
-.vehiculo-form button {
-  background-color: #1976d2;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-}
-
-.vehiculo-form input:focus {
-  outline: none;
-  border: 2px solid #3498db;
-  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
-}
-
-.vehiculo-form button {
-  background: #3498db;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 2rem;
-  border: none;
-  font-weight: bold;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.vehiculo-form button:hover {
-  background: #2980b9;
+.input-field-markdown {
+  @apply pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-gray-500
 }

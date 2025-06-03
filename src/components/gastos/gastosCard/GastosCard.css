@@ -4,7 +4,6 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 16px;
   margin-bottom: 16px;
-  max-width: 500px;
   position: relative;
 }
 
@@ -28,9 +27,7 @@
 
 .gasto-fecha,
 .gasto-nota,
-.gasto-total {
-  margin: 6px 0;
-}
+
 
 .gasto-items {
   list-style-type: disc;
@@ -38,9 +35,19 @@
   margin: 8px 0;
 }
 
-.gasto-eliminar {
-  margin-top: 10px;
+.gasto-button-eliminar {
   background: #ff4d4f;
+}
+
+.gasto-button-eliminar:hover {
+  background: #d9363e;
+}
+
+.gasto-button-modificar {
+  background: #ffa600;
+}
+
+.gasto-button {
   color: white;
   border: none;
   padding: 8px 12px;
@@ -48,6 +55,18 @@
   cursor: pointer;
 }
 
-.gasto-eliminar:hover {
-  background: #d9363e;
+.gasto-button-modificar:hover {
+  background: #a16100;
+}
+
+.gasto-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.gasto-buttons {
+  display: flex;
+  gap: 10px;
 }

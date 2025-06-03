@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { Gasto } from "../../models/Gastos";
-import { obtenerGastos, crearGasto, eliminarGasto } from "../../services/gastosService";
+import { obtenerGastos, crearGasto, eliminarGasto, actualizarGasto } from "../../services/gastosService";
 import Modal from "../../components/modal/Modal";
 import "./Compras.css";
 import GastoCard from "../../components/gastos/gastosCard/GastosCard";
@@ -16,6 +16,9 @@ const Gastos = () => {
   const effectRan = useRef(false); 
   const effectRan2 = useRef(false); 
   const [vehiculos, setVehiculos] = useState<Vehiculo[]>([]);
+  const [modoEdicion, setModoEdicion] = useState(false);
+  const [gastoActual, setGastoActual] = useState<Gasto | null>(null);
+
 
   type ResumenGasto = {
   total: number;
@@ -26,7 +29,7 @@ const Gastos = () => {
 
   useEffect(() => {
     if (!effectRan.current) {
-      obtenerGastos()
+      obtenerGastos("compra")
         .then((res) => {
           setGastos(res.data)
           setResumenGastos(calcularResumen(res.data));
@@ -55,6 +58,32 @@ const Gastos = () => {
     } catch (err) {
       alert("Error al crear gasto");
     }
+  };
+
+  const handleEditMode = (gasto: Gasto) => {
+    setGastoActual(gasto);
+    setModoEdicion(true);
+    setMostrarModal(true);
+  };
+
+  const handleActualizar = async (actualizado: Gasto) => {
+  try {
+    const res = await actualizarGasto(actualizado.id, actualizado);
+    setGastos((prev) =>
+      prev.map((g) => (g.id === actualizado.id ? res.data : g))
+    );
+    setMostrarModal(false);
+    setGastoActual(null);
+    setModoEdicion(false);
+  } catch (err) {
+    alert("Error al editar gasto");
+  }
+};
+
+  const handleEdit = async (gasto: Gasto) => {
+    setGastoActual(gasto);
+    setModoEdicion(true);
+    setMostrarModal(true);
   };
 
   const handleEliminar = async (id: string) => {
@@ -96,7 +125,7 @@ const Gastos = () => {
       <div className="gasto-card-list">
         {Array.isArray(gastos) && gastos.length > 0 ? (
           gastos.map((gasto) => (
-            <GastoCard key={gasto.id} gasto={gasto} onDelete={handleEliminar} vehiculos={vehiculos} />
+            <GastoCard key={gasto.id} gasto={gasto} onDelete={handleEliminar} onEdit={handleEditMode} vehiculos={vehiculos} />
           ))
         ) : (
           <p>No hay compras registradas.</p>
@@ -104,9 +133,18 @@ const Gastos = () => {
       </div>
 
 
-      <Modal isOpen={mostrarModal} onClose={() => setMostrarModal(false)}>
-        <GastoForm onSubmit={handleAgregar} />
-      </Modal>
+      <Modal isOpen={mostrarModal} onClose={() => {
+        setMostrarModal(false);
+        setGastoActual(null);
+        setModoEdicion(false);
+        }}>
+          <GastoForm
+            onSubmit={modoEdicion ? handleActualizar : handleAgregar}
+            gasto={gastoActual ?? undefined}
+            vehiculos={vehiculos}
+          />
+        </Modal>
+
     </div>
   );
 };

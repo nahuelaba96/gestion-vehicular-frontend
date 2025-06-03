@@ -3,6 +3,7 @@ import type { Vehiculo } from "./Vehiculos";
 export interface Gasto {
   id: string;
   vehiculo_id: Vehiculo["id"];
+  tipo: string; // "mantenimiento", "combustible", "peaje", etc.
   fecha_insert: Date;
   fecha: string;
   proveedor: string;

@@ -1,10 +1,7 @@
+@import 'tailwindcss';
 
 .app-container {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  background: linear-gradient(to bottom right, #dbeafe, #fef9c3);
-  font-family: sans-serif;
+  @apply flex flex-col min-h-screen bg-[#303030] font-sans;
 }
 
 .header {
@@ -18,7 +15,7 @@
   font-size: 1.5rem;
   font-weight: bold;
   flex-grow: 2;
-  color:rgb(221, 87, 33);;
+  color:rgb(221, 87, 33);
   text-shadow: 1px 1px 4px grey;
   text-align: center;
 }

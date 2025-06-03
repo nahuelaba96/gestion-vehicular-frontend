@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <GoogleOAuthProvider clientId="380556145557-orli0meppjcmfdh6pnf0imm42q1bhioi.apps.googleusercontent.com">
-      <div className="app-container">
+      <div className="app-container min-h-screen pb-26">
         <div style={{ flex: 1, overflow: "auto" }}>
           <Routes>
 

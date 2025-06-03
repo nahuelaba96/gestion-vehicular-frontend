@@ -2,8 +2,8 @@ import type { AxiosResponse } from "axios";
 import apiClient from "./apiClient";
 import type { Gasto } from "../models/Gastos";
 
-export const obtenerGastos = (): Promise<AxiosResponse<Gasto[]>> => {
-  return apiClient.get<Gasto[]>("/expenses/");
+export const obtenerGastos = (tipo: String): Promise<AxiosResponse<Gasto[]>> => {
+  return apiClient.get<Gasto[]>(`/expenses/?tipo=${tipo}`);
 };
 
 export const crearGasto = (gasto: Gasto): Promise<AxiosResponse<Gasto>> => {
@@ -14,7 +14,7 @@ export const actualizarGasto = (
   id: string,
   gasto: Gasto
 ): Promise<AxiosResponse<Gasto>> => {
-  return apiClient.put<Gasto>(`/expenses/${id}/`, gasto);
+  return apiClient.put<Gasto>(`/expenses/${id}`, gasto);
 }
 
 export const eliminarGasto = (id: string): Promise<AxiosResponse<void>> => {

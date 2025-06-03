@@ -6,9 +6,11 @@ import { obtenerVehiculos } from "../../../services/vehiculosService";
 
 interface Props {
   onSubmit: (gasto: Gasto) => void;
+  gasto?: Gasto;
+  vehiculos?: Vehiculo[];
 }
 
-const GastoForm = ({ onSubmit }: Props) => {
+const GastoForm = ({ onSubmit, gasto, vehiculos: vehiculosProp }: Props) => {
   const [formData, setFormData] = useState({
     vehiculo_id: "",
     fecha: "",
@@ -17,18 +19,33 @@ const GastoForm = ({ onSubmit }: Props) => {
     items: [] as Gasto["items"],
   });
 
-const effectRan = useRef(false); 
+  const [vehiculos, setVehiculos] = useState<Vehiculo[]>([]);
+  const effectRan = useRef(false);
 
-const [vehiculos, setVehiculos] = useState<Vehiculo[]>([]);
+  // Cargar vehículos desde props o fetch
+  useEffect(() => {
+    if (!vehiculosProp && !effectRan.current) {
+      obtenerVehiculos()
+        .then((res) => setVehiculos(res.data))
+        .catch(console.error);
+      effectRan.current = true;
+    } else if (vehiculosProp) {
+      setVehiculos(vehiculosProp);
+    }
+  }, [vehiculosProp]);
 
-useEffect(() => {
-    if (!effectRan.current) {
-    obtenerVehiculos()
-    .then((res) => setVehiculos(res.data))
-    .catch(console.error);
-    effectRan.current = true;
-    }   
-}, []);
+  // Prellenar form si estamos editando
+  useEffect(() => {
+    if (gasto) {
+      setFormData({
+        vehiculo_id: gasto.vehiculo_id || "",
+        fecha: gasto.fecha,
+        proveedor: gasto.proveedor,
+        nota: gasto.nota,
+        items: gasto.items,
+      });
+    }
+  }, [gasto]);
 
   const [itemTemp, setItemTemp] = useState({
     descripcion: "",
@@ -58,9 +75,10 @@ useEffect(() => {
 
     const nuevoGasto: Gasto = {
       ...formData,
-      id: "",
-      fecha_insert: new Date(),
+      id: gasto?.id || "",
+      fecha_insert: gasto?.fecha_insert || new Date(),
       total: calcularTotal(),
+      tipo: "compra", // Asignar tipo por defecto
     };
 
     onSubmit(nuevoGasto);
@@ -71,17 +89,17 @@ useEffect(() => {
       <label>
         Vehículo
         <select
-            value={formData.vehiculo_id}
-            onChange={(e) => setFormData({ ...formData, vehiculo_id: e.target.value })}
+          value={formData.vehiculo_id}
+          onChange={(e) => setFormData({ ...formData, vehiculo_id: e.target.value })}
         >
-            <option value="">(Sin asignar)</option>
-            {vehiculos.map((v) => (
+          <option value="">(Sin asignar)</option>
+          {vehiculos.map((v) => (
             <option key={v.id} value={v.id}>
-                {v.marca} {v.modelo} ({v.patente})
+              {v.marca} {v.modelo} ({v.patente})
             </option>
-            ))}
+          ))}
         </select>
-        </label>
+      </label>
 
       <label>
         Fecha
